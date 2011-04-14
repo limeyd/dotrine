@@ -1,0 +1,17 @@
+# Linux specific aliases
+# Note: Try to keep OS specific aliases in sync
+
+# Naultius
+alias o='nautilus . &'
+
+# Browsers
+alias ch='google-chrome & > /dev/null'
+alias ff='firefox & > /dev/null'
+alias b=ch # Default Browser
+
+# Editor
+ed () {
+    $EDITOR $*
+}
+
+

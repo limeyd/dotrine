@@ -1,0 +1,16 @@
+syntax: glob
+
+*.elc
+*.pyc
+*~
+*.orig
+*.log
+*.swp
+*.tmp
+*.DS_Store
+testdb.sqlite
+*.gz
+*.zip
+*.log
+bin-release/
+bin-debug/

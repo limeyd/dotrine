@@ -1,0 +1,32 @@
+# Set PATH, CDPATH, EDITOR, etc.
+
+EDITOR='gvim'
+PATH="~/bin/:$PATH"
+PATH="~/usr/local/lib:$PATH"
+
+export HISTCONTROL=erasedups
+
+# Virtual Wrapper Config
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_RESPECT_VIRTUALENV=true
+export VIRTUALENV_USE_DISTRIBUTE=true
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+# OSX specific vars
+case `uname` in
+'Darwin')
+
+export RED5_HOME=$HOME/Projects/red5server
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export PATH=/usr/local/bin:$PATH #brew base bin path
+export PATH=/usr/local/Cellar/python/2.7/bin:$PATH #brew python bin path
+
+;;
+'Linux')
+    if [ -f ~/.bash/linux-aliases ];
+    then
+        source ~/.bash/linux-aliases
+    fi
+;;
+esac

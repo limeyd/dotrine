@@ -1,0 +1,162 @@
+#!/bin/bash/
+
+# Command Enhancements
+
+alias ap='sudo apachectl'
+alias apr=ap' restart'
+
+# Common -- Some are from Damian Conway
+alias a='ls -A' # -A all except literal
+alias la="ls -A -l -G"
+alias cl='clear; ls'
+function cdc() { 
+    cd $1; ls 
+}
+alias h='history'
+alias l='ls -lhGt'  # -l long listing, most recent first
+alias l.='ls -lhGd .[^.]*'
+                    # -G color
+alias lh="ls -lh"
+alias ll='ls -lhG'  # -l long listing, human readable, no group info
+alias lt='ls -lt'   # sort with recently modified first
+alias md='mkdir -p'
+# cd vim style
+alias .1='cd ../'     # up one dir
+alias .2='cd ../../'
+alias .3='cd ../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../../'
+
+function take() { 
+    mkdir -p "$1"
+    cd "$1" 
+}
+
+alias e='exit'
+
+function killnamed () { 
+    ps ax | grep $1 | cut -d ' ' -f 1 | xargs kill 
+}
+function zipr() {
+  zip -r $1.zip $1
+}
+
+# changing to projects code
+#
+function c() {
+    if [[ $1 == "" ]] ; then
+        cd $HOME/projects;
+    else
+        if [[ $2 != "" && -d $HOME/projects/$1/$2 ]] ; then
+            cd $HOME/projects/$1/$2;
+        else
+            cd $HOME/projects/$1;
+        fi
+    fi
+}
+
+# misc
+alias reload='. ~/.bash_profile'
+
+# Git
+alias ungit="find . -name '.git' -exec rm -rf {} \;"
+function ga() {
+    git add $*
+}
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+# Commit pending changes and quote all args as message
+function gg() {
+    git commit -v -a -m "$*"
+}
+
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gd='git diff'
+alias gdm='git diff master'
+alias gl='git pull'
+alias gnp="git-notpushed"
+alias gp='git push'
+alias g='git status'
+alias eg='vim .git/config'
+# Git clone from GitHub
+function gch() {
+  git clone git://github.com/$USER/$1.git
+}
+
+# Setup a tracking branch from [remote] [branch_name]
+function gbt() {
+  git branch --track $2 $1/$2 && git checkout $2
+}
+# Quickly clobber a file and checkout
+function grf() {
+  rm $1
+  git checkout $1
+}
+
+# Ruby
+alias r="rake"
+
+# Rails
+alias mr='mongrel_rails start'
+alias ms='mongrel_rails stop'
+alias rc='rails console'
+alias rg='rails generate'
+alias rs='rails server'
+alias tl='tail -f log/*.log'
+alias rn='rails new'
+alias rgc=rg' controller'
+alias rgm=rg' model'
+alias rgs=rg' scaffold'
+alias rgg=rg' migration'
+
+alias rmsvn='find . -name ".svn" -type d -exec rm -rf {} \;'
+
+
+# Nginx
+#function nginx_stop() {
+#    ps ax | grep nginx | cut -d " " -f 1 | xargs sudo kill -9
+#}
+#function nginx_start() {
+#    sudo /opt/nginx/sbin/nginx
+#}
+
+# django / SWIM
+function swim() {
+  export PYTHONPATH=`pwd`
+  app=$1
+  shift
+  python $app/dip/manage.py $*
+}
+
+##############################################################
+# Load OS specific aliases
+######
+case `uname` in
+'Darwin')
+    if [ -f ~/.bash/osx-aliases ];
+    then
+        source ~/.bash/osx-aliases
+    fi
+;;
+'Linux')
+    if [ -f ~/.bash/linux-aliases ];
+    then
+        source ~/.bash/linux-aliases
+    fi
+;;
+esac
+
+
+# HELPERS
+
+__isdigit () {
+  [ $# -eq 1 ] || return -1
+
+  case $1 in
+    *[!0-9]*|"") return -1;;
+              *) return 0;;
+  esac
+}
