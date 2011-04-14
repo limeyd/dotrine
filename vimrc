@@ -56,7 +56,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 
 set matchpairs+=<:>
 " uncomment to hilight long lines
-autocmd BufWinEnter * let w:m2=matchadd('LongLineWarning', '\%>80v.\+', -1)
+"autocmd BufWinEnter * let w:m2=matchadd('LongLineWarning', '\%>80v.\+', -1)
 "autocmd BufEnter * lcd %:p:h 	  " Sets path to directory buffer was loaded from
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
