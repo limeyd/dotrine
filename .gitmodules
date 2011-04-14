@@ -37,15 +37,9 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/snipmate-snippets"]
-	path = vim/bundle/snipmate-snippets
-	url = git@github.com:limeyd/snipmate-snippets.git
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
-[submodule "shell.vim"]
-	path = shell.vim
-	url = https://github.com/vim-scripts/shell.vim--Odding.git
 [submodule "vim/bundle/vim-pastie"]
 	path = vim/bundle/vim-pastie
 	url = git://github.com/tpope/vim-pastie.git
