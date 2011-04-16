@@ -70,9 +70,3 @@
 [submodule "vim/bundle/vim-unimpaired"]
 	path = vim/bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "vim/bundle/vim-todo"]
-	path = vim/bundle/vim-todo
-	url = git@github.com:limeyd/vim-todo.git
-[submodule "vim/bundle/vim-layout"]
-	path = vim/bundle/vim-layout
-	url = git://github.com/svenfuchs/vim-layout.git
