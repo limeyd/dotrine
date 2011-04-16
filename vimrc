@@ -37,7 +37,7 @@ set nowritebackup                 " And again.
 set directory^=$HOME/.vim_tmp//   " Keep swap files in one location
 
 if !isdirectory(&directory)
-    silent execute '!mkdir -p '.&directory
+silent execute '!mkdir -p '.&directory
 endif 
 
 set softtabstop=4
@@ -56,7 +56,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 
 set matchpairs+=<:>
 " uncomment to hilight long lines
-"autocmd BufWinEnter * let w:m2=matchadd('LongLineWarning', '\%>80v.\+', -1)
+"autocmd BufWinEnter  w:m2=matchadd('LongLineWarning', '\%>80v.\+', -1)
 "autocmd BufEnter * lcd %:p:h 	  " Sets path to directory buffer was loaded from
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
@@ -185,11 +185,22 @@ let g:snippets_dir = "~/.vim/snippets/"
 "let g:AutoComplPop_IgnoreCaseOption = 0
 "let g:AutoComplPop_BehaviorKeywordLength = 2
 
+"finds all files in the current directory with TODO|FIXME
+fu! Tododo()
+    pclose!
+    vert new
+    match HiTODO "^.*TODO.*$"
+    match HiFIXME "^.*FIXME.*$"
+    exe '%! egrep -rHn "TODO|FIXME" *'
+    setlocal previewwindow ro nomodifiable nomodified nowrap
+endfu
+command! Todo call Tododo()
+:noremap <Leader><CR> <S-^>gF
 
 fu! DoRunAsPyBuffer()
     pclose! " force preview window closed
     setlocal ft=python
-
+    
     " copy the buffer into a new window, then run that buffer through python
     sil %y a | below new | sil put a | sil %!python -
     " indicate the output window as the current previewwindow
@@ -198,10 +209,8 @@ fu! DoRunAsPyBuffer()
     " back into the original window
     winc p
 endfu
-
 command! RunAsPyBuffer call DoRunAsPyBuffer()
-:noremap <Leader>r :RunAsPyBuffer<CR><CR>
-
+":noremap <Leader>r :RunAsPyBuffer<CR><CR>
 
 fu! DoRunAsRubyBuffer()
     pclose! " force preview window closed
@@ -215,7 +224,6 @@ fu! DoRunAsRubyBuffer()
     " back into the original window
     winc p
 endfu
-
 command! RunAsRubyBuffer call DoRunAsRubyBuffer()
 " :noremap <Leader>r :RunAsRubyBuffer<CR><CR>
 

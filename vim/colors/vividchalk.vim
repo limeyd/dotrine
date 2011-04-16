@@ -191,3 +191,5 @@ call s:hifg("rubyMethod"     ,"#DDE93D","Yellow",77) " 191
 "highlight railsMethod   guifg=#EE1122 ctermfg=1
 hi LongLineWarning           guifg=NONE     guibg=#383838
 hi LongLineError             guifg=#FFFFFF  guibg=#660000
+hi HiTODO                    guifg=#ff3300
+hi HiFIXME                   guifg=#ff0000
