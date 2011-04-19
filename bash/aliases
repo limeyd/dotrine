@@ -43,6 +43,14 @@ function zipr() {
 
 # changing to projects code
 #
+function s() {
+    if [[ $1 == "" ]] ; then
+        cd $HOME/source;
+    else
+        cd $HOME/source/$1;
+    fi
+}
+
 function c() {
     if [[ $1 == "" ]] ; then
         cd $HOME/projects;

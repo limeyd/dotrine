@@ -185,18 +185,6 @@ let g:snippets_dir = "~/.vim/snippets/"
 "let g:AutoComplPop_IgnoreCaseOption = 0
 "let g:AutoComplPop_BehaviorKeywordLength = 2
 
-"finds all files in the current directory with TODO|FIXME
-fu! Tododo()
-    pclose!
-    vert new
-    match HiTODO "^.*TODO.*$"
-    match HiFIXME "^.*FIXME.*$"
-    exe '%! egrep -rHn "TODO|FIXME" *'
-    setlocal previewwindow ro nomodifiable nomodified nowrap
-endfu
-command! Todo call Tododo()
-:noremap <Leader><CR> <S-^>gF
-
 fu! DoRunAsPyBuffer()
     pclose! " force preview window closed
     setlocal ft=python

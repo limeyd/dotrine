@@ -1,3 +1,4 @@
 source ~/.bash/completion_scripts/git_completion
 source virtualenvwrapper.sh
 complete -C ~/.bash/completion_scripts/project_completion -o default c
+complete -C ~/.bash/completion_scripts/source_completion -o default s
