@@ -120,6 +120,54 @@ alias rgm=rg' model'
 alias rgs=rg' scaffold'
 alias rgg=rg' migration'
 
+
+#RVM
+function rvm_store_gemset(){
+    exported_gemsets_dir=$HOME/.gemsets;
+    mkdir -p $exported_gemsets_dir;
+    gemset_name=`rvm gemset name`;
+    rvm gemset export $exported_gemsets_dir/$gemset_name;
+}
+
+function rvm_create_project_with_gemset(){
+    exported_gemsets_dir=$HOME/.gemsets;
+    project=$1;
+    shift;
+    exported_gemset_name=$1.gems;
+    shift;
+    
+    if [[ $project == "" ]]; then
+        echo "project name not supplied";
+        return 0;
+    elif [[ -d $project ]]; then
+        echo "projects exists";
+        return 0;
+    fi
+
+    if [[ $exported_gemset_name == "" ]]; then
+        echo "gemset not supplied"
+        return 0;
+    else
+        if [[ ! -s $exported_gemsets_dir/$exported_gemset_name ]]; then
+            echo $exported_gemset_name "does not exist";
+            return 0;
+        fi
+    fi
+    
+    mkdir $project;
+
+    project_gemset=$project"-"$exported_gemset_name;
+    echo "rvm use 1.9.2@$project_gemset --create" > $project/.rvmrc;
+    cd $project;
+    
+    echo "Importing Gemset => "$exported_gemset_name; 
+    rvm gemset import $exported_gemsets_dir/$exported_gemset_name | grep -v already | grep -v listed | grep -v complete | sed '/^$/d';
+
+    if command -v bundle ; then
+        bundle | grep -v 'Using' | grep -v 'complete' | sed '/^$/d';
+    fi
+}
+
 alias rmsvn='find . -name ".svn" -type d -exec rm -rf {} \;'
 
 

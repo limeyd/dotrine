@@ -73,3 +73,6 @@
 [submodule "vim/bundle/vim-todo"]
 	path = vim/bundle/vim-todo
 	url = git@github.com:/limeyd/vim-todo
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = git@github.com:limeyd/UltiSnips.git

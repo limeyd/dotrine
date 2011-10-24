@@ -14,7 +14,8 @@ set showmode                      " Display the mode you're in.
 set backspace=indent,eol,start    " Intuitive backspacing.
 set hidden                        " Secret sauce handle multiple buffers.
 set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
+set wildmode=list:longest,full    " Complete files like a shell.
+set wildcharm=<c-z>               " Complete files like a shell.
 set wildignore+=*.o,*.obj,*.pyc,*.DS_Store,*.db " Hide irrelevent matches
 set number                        " Show line numbers.
 set numberwidth=4                   " 4 characters wide.
@@ -91,9 +92,9 @@ autocmd FileType liquid set ft=LIQUID.HTML
 " ******************************************
 autocmd FileType actionscript :set dictionary=~/.vim/dict/actionscript.dict
 
-set spell
-set spelllang=en
-set spellsuggest=9
+"set spell
+"set spelllang=en
+"set spellsuggest=9
 
 " ******************************************
 " Keys custom mappings
@@ -168,14 +169,21 @@ map <Leader>c :FufChangeList<CR>
 let g:netrw_list_hide='^\.DS_Store$,^.*\.pyc$'	" Hide certain files from netrw.
 
 " let g:SuperTabDefaultCompletionType="context"
-let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
-let g:SuperTabLongestHighlight = 1
+"let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
+let g:SuperTabContextDefaultCompletionType="<c-n>"
+"let g:SuperTabLongestHighlight = 1
 
 " fuzzyfinder
 let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
 let g:fuf_splitPathMatching=0
 
-let g:snippets_dir = "~/.vim/snippets/"
+" UltiSnips 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
+"let g:snippets_dir = "~/.vim/snippets/"
 
 " autocomplpop ***************************************************************
 " complete option

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+ps1_git_status()
+{
+    local git_status="$(git status 2>/dev/null)"
+    printf "["
+    [[ "${git_status}" = *deleted* ]]                    && printf "$ERED%s" "-"
+    [[ "${git_status}" = *Untracked[[:space:]]files:* ]] && printf "$ECYAN%s" "+"
+    [[ "${git_status}" = *modified:* ]]                  && printf "$EMAGENTA%s" "*"
+    printf "$NO_COLOR]"
+}
+
+ps1_git() {
+
+    local branch="" sha1="" color="$GREEN"
+
+    branch=$(git symbolic-ref -q HEAD 2>/dev/null)
+    (( $? > 0 )) && return 0 # Not in a git repo, no need to continue.
+    sha1=$(git rev-parse --short --quiet HEAD)
+
+    printf "%s" "(git:${branch##refs/heads/}$(ps1_git_status):$sha1)"
+}
+
+ps1_rvm()
+{
+    command -v rvm-prompt >/dev/null 2>&1 && printf "%s" "$(rvm-prompt)"
+}
+##Update the command prompt to be <user>:<current_directory>(git_branch) >
+##Note that the git branch is given a special color
+PS1="\[$EGREEN\]\u\[$NO_COLOR\]@\[$CYAN\]\w \[$NO_COLOR\]\$(ps1_git)\[$MAGENTA\] \$(ps1_rvm) \[$NO_COLOR\]\n$ "
+

@@ -40,13 +40,4 @@ BMAGENTA='\e[45m'
 BCYAN='\e[46m'
 BWHITE='\e[47m'
 
-# parse_git_dirty() {
-#   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo " !!"
-# }
-# parse_git_branch() {
-#   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \\(.*\\)/[\\1$(parse_git_dirty)]/"
-# }
-# Update the command prompt to be <user>:<current_directory>(git_branch) >
-# Note that the git branch is given a special color
-# PS1="(\\$(rvm-prompt i v p g s))\\n\\[$EGREEN\\]\\u \\[$NO_COLOR\\]at \\[$CYAN\\]\\w \\[$EMAGENTA\\]\\$(parse_git_branch)\\[$NO_COLOR\\] \\n$ "
 
