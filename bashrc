@@ -4,6 +4,8 @@ source ~/.bash/aliases
 source ~/.bash/completions
 source ~/.bash/ps1_functions
 
+export ARCHFLAGS="-arch x86_64"
+
 #function truncdir () {
     #pth=`pwd`
     #pth=(${pth//// })
@@ -22,3 +24,4 @@ source ~/.bash/ps1_functions
     #fi
     #unset pth tlen oput tmp i
 #}
+. ~/.nvm/nvm.sh

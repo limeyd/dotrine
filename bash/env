@@ -5,7 +5,9 @@ export SVN_EDITOR=$EDITOR
 PATH="~/bin/:$PATH"
 PATH="~/usr/local/lib:$PATH"
 
-export HISTCONTROL=erasedups
+export HISTCONTROL="&:ls:[bf]g:exit"
+shopt -s cmdhist
+shopt -s cdspell
 
 # Virtual Wrapper Config
 export WORKON_HOME=$HOME/.virtualenvs
@@ -21,7 +23,7 @@ export RED5_HOME=$HOME/Projects/red5server
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PATH=/usr/local/bin:$PATH #brew base bin path
-export PATH=/usr/local/Cellar/python/2.7/bin:$PATH #brew python bin path
+#export PATH=/usr/local/Cellar/python/2.7/bin:$PATH #brew python bin path
 
 ;;
 'Linux')

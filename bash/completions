@@ -1,4 +1,4 @@
 source ~/.bash/completion_scripts/git_completion
-source virtualenvwrapper.sh
+[[ -r /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 complete -C ~/.bash/completion_scripts/project_completion -o default c
 complete -C ~/.bash/completion_scripts/source_completion -o default s

@@ -55,6 +55,8 @@ set laststatus=2                  " Show the status line all the time
 " set statusline=\ ::%f%m%r\ [type=%Y]%=[%03l,%03v][%L]\ 
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
+colorscheme solarized
+
 set matchpairs+=<:>
 " uncomment to hilight long lines
 "autocmd BufWinEnter  w:m2=matchadd('LongLineWarning', '\%>80v.\+', -1)
