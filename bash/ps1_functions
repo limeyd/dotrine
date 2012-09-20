@@ -21,11 +21,11 @@ ps1_git() {
     printf "%s" "(git:${branch##refs/heads/}$(ps1_git_status):$sha1)"
 }
 
-ps1_rvm()
-{
-    command -v rvm-prompt >/dev/null 2>&1 && printf "%s" "$(rvm-prompt)"
-}
+#ps1_rvm()
+#{
+    #command -v rvm-prompt >/dev/null 2>&1 && printf "%s" "$(rvm-prompt)"
+#}
 ##Update the command prompt to be <user>:<current_directory>(git_branch) >
 ##Note that the git branch is given a special color
-PS1="\[$EGREEN\]\u\[$NO_COLOR\]@\[$CYAN\]\w \[$NO_COLOR\]\$(ps1_git)\[$MAGENTA\] \$(ps1_rvm) \[$NO_COLOR\]\n$ "
+PS1="\[$EGREEN\]\u\[$NO_COLOR\]@\[$CYAN\]\w \[$NO_COLOR\]\$(ps1_git)\[$MAGENTA\]\[$NO_COLOR\]\n$ "
 

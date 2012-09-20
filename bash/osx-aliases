@@ -11,3 +11,7 @@ alias ch='open -a Google\ Chrome'
 alias ff='open -a Firefox'
 alias b=ch
 
+function flog(){
+    echo `date` > '/Users/limeyd/Library/Preferences/Macromedia/Flash Player/Logs/flashlog.txt'
+    tail -f '/Users/limeyd/Library/Preferences/Macromedia/Flash Player/Logs/flashlog.txt'
+}

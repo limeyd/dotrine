@@ -9,6 +9,10 @@ filetype plugin indent on         " Turn on file type detection.
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
+set notimeout 
+set ttimeout
+set timeoutlen=100
+
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 set backspace=indent,eol,start    " Intuitive backspacing.
@@ -54,8 +58,6 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 " set statusline=\ ::%f%m%r\ [type=%Y]%=[%03l,%03v][%L]\ 
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-
-colorscheme solarized
 
 set matchpairs+=<:>
 " uncomment to hilight long lines
@@ -224,6 +226,8 @@ fu! DoRunAsRubyBuffer()
 endfu
 command! RunAsRubyBuffer call DoRunAsRubyBuffer()
 " :noremap <Leader>r :RunAsRubyBuffer<CR><CR>
+
+colorscheme vividchalk
 
 " ******************************************
 " Host Local configuration

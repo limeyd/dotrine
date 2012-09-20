@@ -6,6 +6,10 @@ source ~/.bash/ps1_functions
 
 export ARCHFLAGS="-arch x86_64"
 
+alias sw="screen -DRe^Xx work"
+alias sp="screen -DRe^Xx personal"
+
+
 #function truncdir () {
     #pth=`pwd`
     #pth=(${pth//// })

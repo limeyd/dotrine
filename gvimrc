@@ -1,7 +1,7 @@
 " VIM Gui Configuration
 
 " choose a your favourite scheme here
-"colorscheme vividchalk
+colorscheme vividchalk
 
 " OS Specific *****************************************************************
 if has("gui_macvim")
