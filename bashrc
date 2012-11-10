@@ -28,4 +28,4 @@ alias sp="screen -DRe^Xx personal"
     #fi
     #unset pth tlen oput tmp i
 #}
-. ~/.nvm/nvm.sh
+#. ~/.nvm/nvm.sh
