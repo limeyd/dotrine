@@ -1,6 +1,7 @@
 # Set PATH, CDPATH, EDITOR, etc.
 
-export EDITOR='gvim'
+export TERM=xterm-256color
+export EDITOR='vim'
 export SVN_EDITOR=$EDITOR
 PATH="~/bin/:$PATH"
 PATH="~/usr/local/lib:$PATH"

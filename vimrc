@@ -2,9 +2,10 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
-silent! call pathogen#runtime_append_all_bundles()
+"silent! call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
-syntax enable                     " Turn on syntax highlighting.
+syntax on                         " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
 runtime macros/matchit.vim        " Load the matchit plugin.
@@ -39,19 +40,20 @@ set title                         " Set the terminal's title
 set visualbell                    " No beeping.
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory^=$HOME/.vim_tmp//   " Keep swap files in one location
+set directory^=$HOME/.vim_tmp//   " Keep swap files in one locations
+set colorcolumn=80
 
 if !isdirectory(&directory)
 silent execute '!mkdir -p '.&directory
 endif 
 
-set softtabstop=4
-set tabstop=4                     " Global tab width.
-set shiftwidth=4                  " And again, related.
+set softtabstop=2
+set tabstop=2                     " Global tab width.
+set shiftwidth=2                  " And again, related.
 set expandtab                     " Use spaces instead of tabs
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent	(local to buffer)
-set lazyredraw              	  " Don't redraw screen during macros
+"set lazyredraw              	  " Don't redraw screen during macros
 set ttyfast                 	  " Improves redrawing for newer computers
 set ch=2			  " Make command line two lines high
 set laststatus=2                  " Show the status line all the time
@@ -76,7 +78,7 @@ set nolist
 " ******************************************
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType javascript set ft=javascript.jquery 
+"autocmd FileType javascript set ft=javascript.jquery 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -107,21 +109,11 @@ autocmd FileType actionscript :set dictionary=~/.vim/dict/actionscript.dict
 let mapleader = ","
 
 :noremap <Leader>i :set list!<CR> 	" Toggle invisible chars
+:noremap <Leader>n :nohlsearch<CR> 	" Hide Search
 
 "Vertical split then hop to new buffer
 :noremap <Leader>v :vsp^M^W^W<cr>
 :noremap <Leader>h :split^M^W^W<cr>
-
-" Tab mappings.
-map <Leader>tt :tabnew<cr>
-map <Leader>te :tabedit
-map <Leader>tc :tabclose<cr>
-map <Leader>to :tabonly<cr>
-map <Leader>tn :tabnext<cr>
-map <Leader>tp :tabprevious<cr>
-map <Leader>tf :tabfirst<cr>
-map <Leader>tl :tablast<cr>
-map <Leader>tm :tabmove
 
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
 map <Enter> o<ESC>
@@ -136,11 +128,10 @@ map <Enter> o<ESC>
 "map E ge
 
 " Move lines up and down
-map <C-j> :m +1 <CR>
-map <C-k> :m -2 <CR>
+map <C-j> :m+1<CR>
+map <C-k> :m-2<CR>
 
-map <Leader>o :!open %<CR><CR>
-
+" Disable cursor keys
 " noremap  <Up> ""
 " noremap! <Up> <Esc>
 " noremap  <Down> ""
@@ -155,31 +146,30 @@ map <Leader>o :!open %<CR><CR>
 " nnoremap ; :
 " nnoremap : ;
 
-" vnoremap ; :
-" vnoremap : ;
-
 " MRU Most Recently Used
 ":noremap <F5> :MRU<CR>
 
 
 " FuzzyFinder
-map <Leader>b :FufBuffer<CR>
-map <Leader>f :FufFile<CR>
-map <Leader>F :FufFile **/<CR>
-map <Leader>c :FufChangeList<CR>
+"map <Leader>b :FufBuffer<CR>
+"map <Leader>f :FufFile<CR>
+"map <Leader>F :FufFile **/<CR>
+"map <Leader>l :FufChangeList<CR>
+"let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
+"let g:fuf_splitPathMatching=0
+
 " PLUG-IN CONFIGURATIONS BELOW
 " ******************************************
 
 let g:netrw_list_hide='^\.DS_Store$,^.*\.pyc$'	" Hide certain files from netrw.
 
-" let g:SuperTabDefaultCompletionType="context"
+"let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
-let g:SuperTabContextDefaultCompletionType="<c-n>"
+let g:SuperTabContextDefaultCompletionType="<c-p>"
 "let g:SuperTabLongestHighlight = 1
 
-" fuzzyfinder
-let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
-let g:fuf_splitPathMatching=0
+" Super Awesome CTRLP
+noremap <Leader>b :CtrlPBuffer<CR>
 
 " UltiSnips 
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -187,15 +177,13 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 
-"let g:snippets_dir = "~/.vim/snippets/"
-
 " autocomplpop ***************************************************************
 " complete option
-"set complete=.,w,b,u,t,k
-"let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
-"set complete=.
-"let g:AutoComplPop_IgnoreCaseOption = 0
-"let g:AutoComplPop_BehaviorKeywordLength = 2
+set complete=.,w,b,u,t,k
+let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
+set complete=.
+let g:AutoComplPop_IgnoreCaseOption = 0
+let g:AutoComplPop_BehaviorKeywordLength = 2
 
 fu! DoRunAsPyBuffer()
     pclose! " force preview window closed
@@ -228,10 +216,3 @@ command! RunAsRubyBuffer call DoRunAsRubyBuffer()
 " :noremap <Leader>r :RunAsRubyBuffer<CR><CR>
 
 colorscheme vividchalk
-
-" ******************************************
-" Host Local configuration
-" ****************************************** 
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif

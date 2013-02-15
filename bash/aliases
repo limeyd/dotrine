@@ -41,6 +41,12 @@ function zipr() {
   zip -r $1.zip $1
 }
 
+# Tmux shorts
+
+function t() {
+  tmux at -t $*
+}
+
 # changing to projects code
 #
 function s() {

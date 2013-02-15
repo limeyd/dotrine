@@ -5,27 +5,3 @@ source ~/.bash/completions
 source ~/.bash/ps1_functions
 
 export ARCHFLAGS="-arch x86_64"
-
-alias sw="screen -DRe^Xx work"
-alias sp="screen -DRe^Xx personal"
-
-
-#function truncdir () {
-    #pth=`pwd`
-    #pth=(${pth//// })
-    #tlen=${#pth[@]}
-    #oput="/"
-    #i=0
-    #if [ ${pth[0]} = "home" ] ; then
-        #oput="~/"
-        #i=2
-    #fi
-    #if (( $tlen  > 3+$i )) ; then 
-        #echo $oput"${pth[$i]}/../${pth[$tlen-2]}/${pth[$tlen-1]}/"
-    #else
-        #tmp=${pth[@]:$i}
-        #echo $oput"${tmp// //}"
-    #fi
-    #unset pth tlen oput tmp i
-#}
-. ~/.nvm/nvm.sh

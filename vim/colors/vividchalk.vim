@@ -111,9 +111,9 @@ highlight StatusLineNC  guifg=#444444 guibg=#aaaaaa gui=none ctermfg=Black cterm
 highlight Ignore        ctermfg=Black
 highlight WildMenu      guifg=Black   guibg=#ffff00 gui=bold ctermfg=Black ctermbg=Yellow cterm=bold
 highlight Cursor        guifg=Black guibg=White ctermfg=Black ctermbg=White
-highlight CursorLine    guibg=#444444 guifg=NONE
-highlight CursorColumn  guibg=#333333 guifg=NONE
-highlight NonText       guifg=#404040 ctermfg=8
+highlight CursorLine    guibg=#3a3a3a guifg=NONE ctermbg=17 ctermfg=None cterm=NONE
+highlight CursorColumn  ctermbg=Black guibg=Black
+highlight ColorColumn   ctermbg=53 guibg=#3a3a3a
 highlight SpecialKey    guifg=#404040 ctermfg=8
 highlight Directory     none
 high link Directory     Identifier
@@ -160,9 +160,9 @@ call s:hifg("TabLine"   ,"#bbbbbb","LightGrey",85)
 call s:hibg("TabLine"   ,"#333333","DarkGrey",80)
 highlight TabLineSel    guifg=White guibg=Black ctermfg=White ctermbg=Black
 highlight TabLineFill   gui=underline cterm=underline
+
 call s:hifg("TabLineFill","#bbbbbb","LightGrey",85)
 call s:hibg("TabLineFill","#808080","Grey",83)
-
 hi Type gui=none
 hi Statement gui=none
 if !has("gui_mac")
