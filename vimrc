@@ -215,4 +215,4 @@ endfu
 command! RunAsRubyBuffer call DoRunAsRubyBuffer()
 " :noremap <Leader>r :RunAsRubyBuffer<CR><CR>
 
-colorscheme vividchalk
+colorscheme gruvbox

@@ -27,5 +27,5 @@ ps1_git() {
 #}
 ##Update the command prompt to be <user>:<current_directory>(git_branch) >
 ##Note that the git branch is given a special color
-PS1="\[$EGREEN\]\u\[$NO_COLOR\]@\[$CYAN\]\w \[$NO_COLOR\]\$(ps1_git)\[$MAGENTA\]\[$NO_COLOR\]\n$ "
+PS1="\[$GREEN\]\u\[$NO_COLOR\]@\[$GREEN\]$(hostname)\[$CYAN\]\w \[$NO_COLOR\]\$(ps1_git)\[$MAGENTA\]\[$NO_COLOR\]\n% "
 
