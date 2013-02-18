@@ -73,6 +73,8 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,winsize
 set listchars=trail:.,tab:>-,eol:$
 set nolist
 
+colorscheme solarized
+
 " ******************************************
 " FileType customizations
 " ******************************************
@@ -214,5 +216,3 @@ fu! DoRunAsRubyBuffer()
 endfu
 command! RunAsRubyBuffer call DoRunAsRubyBuffer()
 " :noremap <Leader>r :RunAsRubyBuffer<CR><CR>
-
-colorscheme gruvbox
