@@ -100,3 +100,6 @@
 [submodule "vim/bundle/cs-gruvbox"]
 	path = vim/bundle/cs-gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "vim/bundle/color-molokai"]
+	path = vim/bundle/color-molokai
+	url = https://github.com/tomasr/molokai
