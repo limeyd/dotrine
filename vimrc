@@ -73,7 +73,15 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,winsize
 set listchars=trail:.,tab:>-,eol:$
 set nolist
 
-colorscheme solarized
+colorscheme molokai
+
+if &term =~ '256color'
+  "Disable Background Color Erase (BCE) so that color schemes
+  " work properly when Vim is used inside tmux and GNU screen.
+  " See also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+  set t_Co=256
+endif
 
 " ******************************************
 " FileType customizations
@@ -172,6 +180,7 @@ let g:SuperTabContextDefaultCompletionType="<c-p>"
 
 " Super Awesome CTRLP
 noremap <Leader>b :CtrlPBuffer<CR>
+noremap <Leader>f :CtrlP<CR>
 
 " UltiSnips 
 let g:UltiSnipsExpandTrigger="<tab>"
