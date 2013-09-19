@@ -22,8 +22,6 @@ case `uname` in
 
   export PATH=/usr/local/bin:$PATH #brew base bin path
   export PATH=/usr/local/share/npm/bin:$PATH #brew npm
-  export PATH=$HOME/.rbenv/bin:$PATH #
-  eval "$(rbenv init - --no-rehash)"
 
   export ARCHFLAGS="-arch x86_64"
 

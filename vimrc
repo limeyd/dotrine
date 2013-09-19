@@ -14,7 +14,7 @@ set notimeout
 set ttimeout
 set timeoutlen=100
 
-set showcmd                       " Display incomplete commands.
+set noshowcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 set backspace=indent,eol,start    " Intuitive backspacing.
 set hidden                        " Secret sauce handle multiple buffers.
@@ -36,6 +36,7 @@ set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 set background=dark
 set scrolloff=3                   " Show 3 lines of context around the cursor.
+set scrolljump=2
 set title                         " Set the terminal's title
 set visualbell                    " No beeping.
 set nobackup                      " Don't make a backup before overwriting a file.
@@ -96,6 +97,7 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete 
 autocmd FileType actionscript set omnifunc=actionscriptcomplete#CompleteAS
 autocmd FileType python set ft=python.django
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 " autocmd FileType html set ft=HTMLDJANGO.HTML
 autocmd FileType liquid set ft=LIQUID.HTML
 " autocmd FileType xhtml set ft=HTMLDJANGO.HTML

@@ -103,3 +103,6 @@
 [submodule "vim/bundle/color-molokai"]
 	path = vim/bundle/color-molokai
 	url = https://github.com/tomasr/molokai
+[submodule "vim/bundle/vim-multiple-cursors"]
+	path = vim/bundle/vim-multiple-cursors
+	url = https://github.com/limeyd/vim-multiple-cursors.git
